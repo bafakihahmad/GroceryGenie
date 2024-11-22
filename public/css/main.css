@@ -1,0 +1,24 @@
+* {
+  background-color: antiquewhite;
+}
+.primary-nav ul {
+  /* padding: 0;
+  margin: 0; */
+  background-color: #3f3f3f;
+  /* margine top bottom and left and right */
+  margin: 0% 5%;
+}
+
+.primary-nav li {
+  display: inline;
+  margin: 5px 0;
+}
+
+.primary-nav li a {
+  background-color: #3f3f3f;
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  /* padding: 5px, 5px; */
+  /* margin: 0; */
+}
