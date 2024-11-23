@@ -15,29 +15,39 @@
         </div>
         <div class="auth-box">
           <!-- registry form split into divs for styling and uses post to save data to db -->
-          <form class="user" action="/registered" method="post">
+          <form class="user" action="registered" method="post">
+            <!-- Input field for the username -->
+            <div class="username-box">
+              <input
+                type="text"
+                id="auth-input-group"
+                placeholder="username"
+                name="username"
+                required
+              /><br />
+            </div>
             <!-- Input field for the first name -->
-            <div class="firstName">
+            <div class="firstname-box">
               <input
                 type="text"
                 id="auth-input-group"
                 placeholder="first name"
-                name="firstName"
+                name="firstname"
                 required
               /><br />
             </div>
             <!-- Input field for the last name -->
-            <div class="lastName">
+            <div class="lastname-box">
               <input
                 type="text"
                 id="auth-input-group"
                 placeholder="last name"
-                name="lastName"
+                name="lastname"
                 required
               /><br />
             </div>
             <!-- Input field for the email -->
-            <div class="emailp">
+            <div class="email-box">
               <input
                 type="email"
                 id="auth-input-group"
@@ -47,7 +57,7 @@
               /><br />
             </div>
             <!-- Input field for the password -->
-            <div class="passp">
+            <div class="pass-box">
               <input
                 type="text"
                 id="auth-input-group"

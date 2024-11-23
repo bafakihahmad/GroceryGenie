@@ -2,7 +2,10 @@
 let express = require("express");
 let ejs = require("ejs");
 let path = require("path");
-const db = require("./database.js");
+let db = require("./database.js");
+let session = require("express-session");
+let validator = require("express-validator");
+let expressSanitizer = require("express-sanitizer");
 
 // create express app
 let app = express();
@@ -12,6 +15,24 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Tell Express that we want to use EJS as the templating engine
 app.set("view engine", "ejs");
+
+// Set up express built in body parser
+app.use(express.urlencoded({ extended: true }));
+
+// Create an input sanitizer
+app.use(expressSanitizer());
+
+// Create a session (placed before routes - ensures it is applied to all incoming requests)
+app.use(
+  session({
+    secret: "somerandomstuff",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 600000,
+    },
+  })
+);
 
 // Load the route handlers for /main
 const mainRoutes = require("./routes/main");
