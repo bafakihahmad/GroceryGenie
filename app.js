@@ -7,6 +7,7 @@ let app = express();
 
 // pass in path of folder we want to serve staticlly
 app.use(express.static(path.join(__dirname, "public")));
+
 // Tell Express that we want to use EJS as the templating engine
 app.set("view engine", "ejs");
 

@@ -1,24 +1,32 @@
 * {
-  background-color: antiquewhite;
+  background-color: #333333;
+}
+
+.primary-nav {
+  text-align: center;
+  margin: 20px 0 0;
+  padding: 10px 0;
 }
 .primary-nav ul {
-  /* padding: 0;
-  margin: 0; */
-  background-color: #3f3f3f;
-  /* margine top bottom and left and right */
-  margin: 0% 5%;
+  list-style: none;
+  margin: 0 2px;
+  padding: 0;
 }
 
 .primary-nav li {
-  display: inline;
-  margin: 5px 0;
+  display: inline-block;
+  padding: 5px 5px;
 }
 
 .primary-nav li a {
-  background-color: #3f3f3f;
-  color: white;
-  list-style: none;
-  text-decoration: none;
-  /* padding: 5px, 5px; */
-  /* margin: 0; */
+  font-weight: normal;
+  padding: 10px 5px;
+  font-size: 1.2em;
+}
+
+.primary-nav,
+.primary-nav ul,
+.primary-nav li,
+.primary-nav li a {
+  background-color: #ede9dd;
 }
