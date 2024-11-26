@@ -42,9 +42,9 @@ app.use("/", mainRoutes);
 const usersRoutes = require("./routes/users");
 app.use("/users", usersRoutes);
 
-app.get("/fridge", function (req, res, next) {
-  res.render("fridge.ejs");
-});
+// Load the route handlers for /fridge
+const fridgeRoutes = require("./routes/fridge");
+app.use("/fridge", fridgeRoutes);
 
 let port = 8000;
 app.listen(port, () => console.log(`GroceryGenie listening on port ${port}!`));

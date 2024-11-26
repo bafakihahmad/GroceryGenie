@@ -5,14 +5,6 @@ const db = require("../database");
 
 const { check, validationResult } = require("express-validator");
 
-const redirectLogin = (req, res, next) => {
-  if (!req.session.userId) {
-    res.redirect("./login"); // redirect to the login page
-  } else {
-    next(); // move to the next middleware function
-  }
-};
-
 router.get("/login", function (req, res, next) {
   res.render("login.ejs");
 });

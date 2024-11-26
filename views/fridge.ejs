@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fridge</title>
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fridge.css" />
   </head>
   <body>
     <%- include('components/navbar') %>
-    <h1>This is the fridge page</h1>
+    <div class="title"><h1>Anything to add <%= username %>?</h1></div>
+    <div class="add-box">
+      <form action="fridge/add" method="post">
+        <input type="text" name="ingredient" id="ingredient" />
+        <button type="submit">Add to fridge</button>
+      </form>
+    </div>
   </body>
 </html>
