@@ -34,11 +34,11 @@ const linkIngredientToUser = (userId, ingredientId, callback) => {
 };
 
 const getUserIdByUsername = (username, callback) => {
-  // SQL query to get the user_id based on username
+  // SQL query to get the users_id based on username
   const query = "SELECT users_id FROM users WHERE username = ?";
   db.query(query, [username], (err, results) => {
     if (err) {
-      return callback(err, null); // Pass the error to the callback
+      return callback(err, null);
     }
 
     if (results.length === 0) {
@@ -52,10 +52,50 @@ const getUserIdByUsername = (username, callback) => {
   });
 };
 
+const getIngredientsForUser = (userId, callback) => {
+  const sqlQuery = `
+    SELECT i.ingredient 
+    FROM fridge f
+    JOIN ingredients i ON f.ingredient_id = i.ingredient_id
+    WHERE f.users_id = ?;
+  `;
+
+  db.query(sqlQuery, [userId], (err, results) => {
+    if (err) {
+      return callback(err, null);
+    }
+
+    // Extract the ingredients into an array
+    const ingredients = results.map((row) => row.ingredient);
+    // Pass the array to the callback
+    callback(null, ingredients);
+  });
+};
+
 router.get("/", redirectLogin, function (req, res, next) {
   // Access username from session
   const username = req.session.userId;
-  res.render("fridge.ejs", { username });
+  getUserIdByUsername(username, (err, userId) => {
+    if (err) {
+      console.error("Error fetching user ID:", err);
+      return res
+        .status(500)
+        .send("An error occurred while fetching user data.");
+    }
+
+    if (!userId) {
+      return res.status(404).send("User not found.");
+    }
+
+    getIngredientsForUser(userId, (err, ingredients) => {
+      if (err) {
+        console.error("Error fetching ingredients:", err);
+      } else {
+        //console.log("Ingredients for user:", ingredients);
+        res.render("fridge.ejs", { username, ingredients });
+      }
+    });
+  });
 });
 
 router.post("/add", function (req, res, next) {
@@ -86,10 +126,11 @@ router.post("/add", function (req, res, next) {
         // Ingredient exists, get its ingredient_id
         const ingredientId = ingredientResult[0].ingredient_id;
 
-        // Step 3: Link ingredient to user (with duplicate check)
+        // Link ingredient to user (with duplicate check)
         linkIngredientToUser(userId, ingredientId, (err, result) => {
           if (err) return next(err);
 
+          // handle case where ingredient is a duplicate
           if (result === "duplicate") {
             return res.status(409).send(`
               <script>
@@ -99,13 +140,8 @@ router.post("/add", function (req, res, next) {
             `);
           }
 
-          // Success: Ingredient added
-          res.send(`
-            <script>
-              alert("Ingredient successfully added to your fridge!");
-              window.location.href = "/";
-            </script>
-          `);
+          // Ingredient added, redirect to show updated list
+          res.redirect("/fridge");
         });
       } else {
         // Ingredient doesn't exist, insert it into Ingredients table
@@ -129,13 +165,8 @@ router.post("/add", function (req, res, next) {
               `);
             }
 
-            // Success: Ingredient added
-            res.send(`
-              <script>
-                alert("Ingredient successfully added to your fridge!");
-                window.location.href = "/";
-              </script>
-            `);
+            // Ingredient added, redirect to show updated list
+            res.redirect("/fridge");
           });
         });
       }

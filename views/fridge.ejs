@@ -10,12 +10,36 @@
   </head>
   <body>
     <%- include('components/navbar') %>
-    <div class="title"><h1>Anything to add <%= username %>?</h1></div>
-    <div class="add-box">
-      <form action="fridge/add" method="post">
-        <input type="text" name="ingredient" id="ingredient" />
-        <button type="submit">Add to fridge</button>
+    <div class="title">
+      <h1>What would you like to add <%= username %>?</h1>
+    </div>
+    <div class="action-container">
+      <form action="fridge/add" method="post" class="action-form">
+        <input
+          type="text"
+          name="ingredient"
+          id="ingredient"
+          placeholder="Add an ingredient"
+        />
+        <button type="submit">Add to Fridge</button>
       </form>
+    </div>
+    <div class="ingredientlist">
+      <ul>
+        <% ingredients.forEach(ingredient => { %>
+        <li>
+          <h2><%= ingredient %></h2>
+          <form action="/remove" method="POST">
+            <input
+              type="hidden"
+              name="removeIngredient"
+              value="<%= ingredient %>"
+            />
+            <button type="submit">Trash</button>
+          </form>
+        </li>
+        <% }) %>
+      </ul>
     </div>
   </body>
 </html>

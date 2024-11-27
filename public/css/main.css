@@ -19,6 +19,8 @@
 }
 
 .primary-nav li a {
+  color: #fffafa;
+  text-decoration: none;
   font-weight: normal;
   padding: 10px 5px;
   font-size: 1.2em;
@@ -28,5 +30,5 @@
 .primary-nav ul,
 .primary-nav li,
 .primary-nav li a {
-  background-color: #ede9dd;
+  background-color: #4caf50;
 }

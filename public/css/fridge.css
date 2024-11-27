@@ -1,33 +1,87 @@
 .title {
   text-align: center;
-  color: #4caf50;
+  color: white;
 }
-.add-box {
+
+/* Center and align all actions */
+.action-container {
   display: flex;
   justify-content: center;
-  padding: 10px;
-  /* Space between title and search bar */
-  margin-top: 10px;
+  align-items: center;
+  gap: 15px; /* Add space between elements */
+  margin-top: 20px;
 }
 
-.add-box input {
+.action-form {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+/* Style for the input */
+.action-form input {
   padding: 10px;
+  border-radius: 5px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px; /* Space between input and Add button */
+  font-size: 1.1em;
+  box-sizing: border-box;
 }
 
-/* Add button styling */
-.add-box button {
-  background-color: #4caf50;
-  color: white;
-  padding: 12px 18px;
-  border: none;
+.action-form input {
+  margin-right: 15px; /* Add space between input and button */
+}
+/* Style for both buttons */
+.action-form button,
+.show-fridge-btn {
+  padding: 10px 20px;
   border-radius: 5px;
+  border: none;
+  background-color: #5f7838;
+  color: white;
+  font-size: 1.1em;
   cursor: pointer;
+  box-sizing: border-box;
+}
+
+.action-form button:hover,
+.show-fridge-btn:hover {
+  background-color: #45a049;
+}
+
+.ingredientlist ul {
+  margin: 0;
+  padding: 2%;
+}
+
+.ingredientlist ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Styling for each ingredient (h2) */
+.ingredientlist h2 {
+  margin: 0;
+  font-size: 1.5em; /* Increased font size */
+}
+
+/* Trash button styling */
+.ingredientlist button {
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  /* border-radius: 10px; */
   font-size: 1.1em;
 }
 
-.add-box button:hover {
-  background-color: #45a049;
+.ingredientlist ul li,
+.ingredientlist h2 {
+  background-color: aliceblue;
+}
+
+.ingredientlist button:hover {
+  background-color: #ff3333;
 }
