@@ -29,7 +29,7 @@
         <% ingredients.forEach(ingredient => { %>
         <li>
           <h2><%= ingredient %></h2>
-          <form action="/remove" method="POST">
+          <form action="fridge/remove" method="POST">
             <input
               type="hidden"
               name="removeIngredient"

@@ -122,4 +122,36 @@ router.post("/add", function (req, res, next) {
   });
 });
 
+router.post("/remove", function (req, res, next) {
+  const username = req.session.userId;
+
+  // use helper method to fetch users_id for querying database
+  getUserIdByUsername(username, (err, userId) => {
+    if (err) {
+      console.error("Error fetching user ID:", err);
+      return res
+        .status(500)
+        .send("An error occurred while fetching user data.");
+    }
+
+    if (!userId) {
+      return res.status(404).send("User not found.");
+    }
+
+    // parser ingredient to delete from form
+    let ingredientToDelete = req.body.removeIngredient;
+    // console.log(ingredientToDelete);
+    // execute sql query to delete said ingredient
+    let sqlQuery =
+      "DELETE FROM Fridge WHERE ingredient_id = (SELECT ingredient_id FROM ingredients WHERE ingredient = ?) AND users_id = ?";
+    db.query(sqlQuery, [ingredientToDelete, userId], (err, results) => {
+      if (err) {
+        return next(err);
+      } else {
+        res.redirect("/fridge");
+      }
+    });
+  });
+});
+
 module.exports = router;
