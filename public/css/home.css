@@ -1,0 +1,16 @@
+form,
+h1 {
+  padding-top: 10px;
+  margin: 0%;
+  text-align: center;
+}
+
+form button {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  /* border-radius: 10px; */
+  font-size: 1.1em;
+}

@@ -1,26 +1,27 @@
 * {
-  background-color: #333333;
-  /* background-color: aliceblue; */
+  background-color: #f5f5fa;
+  margin: 0px;
+  padding: 0px;
 }
 
 .primary-nav {
+  background-color: #4caf50;
   text-align: center;
-  margin: 0px 0px;
-  padding: 10px 0;
+  margin: 0px;
+  padding: 10px;
 }
 .primary-nav ul {
   list-style: none;
-  margin: 0 2px;
-  padding: 0;
 }
 
 .primary-nav li {
-  display: inline-block;
-  padding: 5px 5px;
+  display: inline;
+  padding: 10px;
 }
 
 .primary-nav li a {
-  color: #fffafa;
+  /* font-family: 'Courier New', Courier, monospace; */
+  color: aliceblue;
   text-decoration: none;
   font-weight: normal;
   padding: 10px 5px;
@@ -32,4 +33,12 @@
 .primary-nav li,
 .primary-nav li a {
   background-color: #4caf50;
+}
+
+.primary-nav li a:hover {
+  color: #4caf50;
+}
+
+.primary-nav a:hover {
+  background-color: aliceblue;
 }

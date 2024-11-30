@@ -1,9 +1,19 @@
-let express = require("express");
+const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const db = require("../database");
 
 const { check, validationResult } = require("express-validator");
+
+// Helper functions
+const redirectLogin = (req, res, next) => {
+  if (!req.session.userId) {
+    // Redirect to the login page if not logged in
+    res.redirect("./users/login");
+  } else {
+    next();
+  }
+};
 
 router.get("/login", function (req, res, next) {
   res.render("login.ejs");
@@ -36,7 +46,7 @@ router.post("/loggedin", function (req, res, next) {
         // go in here if Passwords match
         // Save user session here, when login is successful
         req.session.userId = req.body.username;
-        res.status(200).redirect("../");
+        res.status(200).redirect("/fridge");
       } else {
         // Passwords don't match
         res.status(401).send("<h1>Invalid username or password<h1>");
@@ -100,5 +110,14 @@ router.post(
     }
   }
 );
+
+router.get("/logout", redirectLogin, (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.redirect("./");
+    }
+    res.send("you are now logged out.");
+  });
+});
 
 module.exports = router;
