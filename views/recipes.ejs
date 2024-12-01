@@ -11,5 +11,21 @@
   <body>
     <%- include('components/navbar') %>
     <h1>Recipes based on your fridge!</h1>
+    <div class="recipes-container">
+      <% recipes.forEach((recipe) => { %>
+      <div class="recipe-card">
+        <img src="<%= recipe.image %>" alt="<%= recipe.title %>" />
+        <h3><%= recipe.title %></h3>
+        <p>
+          <strong>Used Ingredients:</strong> <%=
+          recipe.usedIngredients.join(",") %>
+        </p>
+        <p>
+          <strong>Missing Ingredients:</strong>
+          <%=recipe.missedIngredients.join(", ") %>
+        </p>
+      </div>
+      <% }) %>
+    </div>
   </body>
 </html>

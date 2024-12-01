@@ -3,3 +3,30 @@ h1 {
   margin: 0%;
   text-align: center;
 }
+
+.recipes-container {
+  display: flex; /* layout as flexible boxes */
+  flex-wrap: wrap; /* if recipe card does not fit on one line move to next line */
+  justify-content: center; /* center all recipe cards */
+  gap: 20px;
+  padding: 20px;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 300px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.recipe-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.recipe-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
