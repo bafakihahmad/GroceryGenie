@@ -34,6 +34,13 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  // Make the userId available to all templates
+  // necessary to check session state for dynamic changes to the UI
+  res.locals.userId = req.session.userId || null;
+  next();
+});
+
 // Load the route handlers for /main
 const mainRoutes = require("./routes/main");
 app.use("/", mainRoutes);
