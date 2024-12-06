@@ -1,16 +1,10 @@
+/* about title styling */
 .about {
   padding-top: 10px;
   color: black;
   text-align: center;
 }
-
-img {
-  /* Scale the image to width of the screen */
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
+/* about description styling */
 h1 {
   color: black;
 }

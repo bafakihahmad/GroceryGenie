@@ -138,9 +138,8 @@ router.post("/remove", function (req, res, next) {
       return res.status(404).send("User not found.");
     }
 
-    // parser ingredient to delete from form
+    // parse ingredient to delete from form
     let ingredientToDelete = req.body.removeIngredient;
-    // console.log(ingredientToDelete);
     // execute sql query to delete said ingredient
     let sqlQuery =
       "DELETE FROM Fridge WHERE ingredient_id = (SELECT ingredient_id FROM ingredients WHERE ingredient = ?) AND users_id = ?";

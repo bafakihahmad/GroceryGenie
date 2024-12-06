@@ -3,7 +3,7 @@
   color: black;
 }
 
-/* Center and align all actions */
+/* Center and align all actions (/fridge/add form) */
 .action-container {
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   align-items: center; /* Align items vertically */
 }
 
-/* Style for the input */
+/* Style for input field */
 .action-form input {
   padding: 10px;
   border-radius: 5px;
@@ -29,6 +29,7 @@
 .action-form input {
   margin-right: 15px; /* Add space between input and button */
 }
+
 /* Style for both buttons */
 .action-form button,
 .show-fridge-btn {
@@ -42,6 +43,7 @@
   box-sizing: border-box;
 }
 
+/* make add button brighter green on hover */
 .action-form button:hover,
 .show-fridge-btn:hover {
   background-color: #45a049;
@@ -52,6 +54,7 @@
   padding: 2%;
 }
 
+/* Styling for individual items in list*/
 .ingredientlist ul li {
   display: flex;
   align-items: center;
@@ -63,7 +66,7 @@
 /* Styling for each ingredient (h2) */
 .ingredientlist h2 {
   margin: 0;
-  font-size: 1.5em; /* Increased font size */
+  font-size: 1.5em;
 }
 
 /* Trash button styling */
@@ -73,7 +76,6 @@
   border: none;
   padding: 10px 15px;
   cursor: pointer;
-  /* border-radius: 10px; */
   font-size: 1.1em;
 }
 
@@ -82,6 +84,7 @@
   background-color: aliceblue;
 }
 
+/* Trash button color change on hover to bright red*/
 .ingredientlist button:hover {
   background-color: #ff3333;
 }

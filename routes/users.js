@@ -111,6 +111,7 @@ router.post(
   }
 );
 
+// logout route handler
 router.get("/logout", redirectLogin, (req, res) => {
   req.session.destroy((err) => {
     if (err) {

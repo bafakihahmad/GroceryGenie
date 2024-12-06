@@ -10,6 +10,7 @@ router.get("/ingredients", function (req, res, next) {
     if (err) {
       return next(err);
     } else {
+      // return query results in json format
       res.json(result);
     }
   });

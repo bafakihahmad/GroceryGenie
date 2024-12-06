@@ -16,13 +16,15 @@ const { getIngredientsForUser, getUserIdByUsername } = require(path.join(
 // Helper functions
 const redirectLogin = (req, res, next) => {
   if (!req.session.userId) {
-    // Redirect to the login page if not logged in
+    // Redirect to login page if not logged in already
     res.redirect("./users/login");
   } else {
+    // mover to next middleware otherwise
     next();
   }
 };
 
+// recipes route hanlder
 router.get("/", redirectLogin, function (req, res, next) {
   // Access username from session
   const username = req.session.userId;
@@ -68,7 +70,7 @@ router.get("/", redirectLogin, function (req, res, next) {
               // Parse the response body
               const recipes = JSON.parse(body);
 
-              // Transform the recipes to include only necessary fields
+              // Transform recipes to include only necessary fields
               const formattedRecipes = recipes.map((recipe) => ({
                 title: recipe.title,
                 image: recipe.image,
@@ -79,7 +81,6 @@ router.get("/", redirectLogin, function (req, res, next) {
               }));
 
               // pass the formatted recipes parsed from the JSON file and render the page
-              //console.log(formattedRecipes);
               res.render("recipes.ejs", { recipes: formattedRecipes });
             } catch (parseError) {
               console.error("Error parsing API response:", parseError);
