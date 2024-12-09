@@ -117,7 +117,7 @@ router.get("/logout", redirectLogin, (req, res) => {
     if (err) {
       return res.redirect("./");
     }
-    res.send("you are now logged out.");
+    res.send("You have been looged out");
   });
 });
 

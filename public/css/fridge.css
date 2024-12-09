@@ -1,6 +1,8 @@
-.title {
+.title,
+h2 {
   text-align: center;
   color: black;
+  padding-top: 1%;
 }
 
 /* Center and align all actions (/fridge/add form) */

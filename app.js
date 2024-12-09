@@ -61,5 +61,9 @@ app.use("/recipes", recipesRoutes);
 const apiRoutes = require("./routes/api");
 app.use("/api", apiRoutes);
 
+// Load the route handlers for /ingredients
+const ingredientsRoutes = require("./routes/ingredients");
+app.use("/ingredients", ingredientsRoutes);
+
 let port = 8000;
 app.listen(port, () => console.log(`GroceryGenie listening on port ${port}!`));

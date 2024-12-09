@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingredients</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fridge.css" />
+  </head>
+  <body>
+    <%- include('components/navbar')%>
+    <div class="title">
+      <h1>What would you like to search for?</h1>
+    </div>
+    <div class="action-container">
+      <form action="/ingredients/search" method="post" class="action-form">
+        <input
+          type="text"
+          name="ingredient"
+          id="ingredient"
+          placeholder="Ingredient"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="ingredientlist">
+      <% if (!ingredients || ingredients.length === 0) { %>
+      <h2>
+        Ingredients used by other users will show here; otherwise, it has not
+        yet been added by others!
+      </h2>
+      <% } else { %>
+      <ul>
+        <% for(let i = 0; i < ingredients.length; i++) {%>
+        <li>
+          <h2><%= ingredients[i] %></h2>
+        </li>
+        <% } %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>
