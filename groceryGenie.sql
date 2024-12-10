@@ -59,7 +59,7 @@ CREATE TABLE `fridge` (
 -- Dumping data for table `Fridge`
 --
 
-LOCK TABLES `fridge` WRITE;
+-- LOCK TABLES `fridge` WRITE;
 /*!40000 ALTER TABLE `Fridge` DISABLE KEYS */
 ;
 
