@@ -34,7 +34,7 @@ FLUSH PRIVILEGES;
 ;
 
 --
--- Table structure for table `Fridge`
+-- Table structure for table `fridge`
 --
 
 DROP TABLE IF EXISTS `fridge`;
@@ -56,11 +56,11 @@ CREATE TABLE `fridge` (
 ;
 
 --
--- Dumping data for table `Fridge`
+-- Dumping data for table `fridge`
 --
 
--- LOCK TABLES `fridge` WRITE;
-/*!40000 ALTER TABLE `Fridge` DISABLE KEYS */
+LOCK TABLES `fridge` WRITE;
+/*!40000 ALTER TABLE `fridge` DISABLE KEYS */
 ;
 
 INSERT INTO
@@ -75,7 +75,7 @@ VALUES (12, 2, 16),
     (37, 2, 18),
     (40, 2, 26),
     (41, 2, 27);
-/*!40000 ALTER TABLE `Fridge` ENABLE KEYS */
+/*!40000 ALTER TABLE `fridge` ENABLE KEYS */
 ;
 
 UNLOCK TABLES;
