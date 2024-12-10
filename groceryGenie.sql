@@ -81,7 +81,7 @@ VALUES (12, 2, 16),
 UNLOCK TABLES;
 
 --
--- Table structure for table `Ingredients`
+-- Table structure for table `ingredients`
 --
 
 DROP TABLE IF EXISTS `ingredients`;
@@ -101,11 +101,11 @@ CREATE TABLE `ingredients` (
 ;
 
 --
--- Dumping data for table `Ingredients`
+-- Dumping data for table `ingredients`
 --
 
 LOCK TABLES `ingredients` WRITE;
-/*!40000 ALTER TABLE `Ingredients` DISABLE KEYS */
+/*!40000 ALTER TABLE `ingredients` DISABLE KEYS */
 ;
 
 INSERT INTO
@@ -125,7 +125,7 @@ VALUES (
     (26, 'rice'),
     (12, 'tomato'),
     (17, 'tuna');
-/*!40000 ALTER TABLE `Ingredients` ENABLE KEYS */
+/*!40000 ALTER TABLE `ingredients` ENABLE KEYS */
 ;
 
 UNLOCK TABLES;
