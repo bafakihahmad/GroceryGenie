@@ -1,7 +1,10 @@
-CREATE OR REPLACE USER 'appuser' @'localhost' IDENTIFIED BY 'app2027';
+-- Create the user only if it doesn't already exist
+CREATE USER IF NOT EXISTS 'appuser' @'localhost' IDENTIFIED BY 'app2027';
 
+-- Grant all privileges
 GRANT ALL PRIVILEGES ON groceryGenie.* TO 'appuser' @'localhost';
 
+-- Apply the changes
 FLUSH PRIVILEGES;
 -- MySQL dump 10.13  Distrib 8.0.39, for macos14 (x86_64)
 --
