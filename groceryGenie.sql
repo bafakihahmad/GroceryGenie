@@ -37,13 +37,13 @@ FLUSH PRIVILEGES;
 -- Table structure for table `Fridge`
 --
 
-DROP TABLE IF EXISTS `Fridge`;
+DROP TABLE IF EXISTS `fridge`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */
 ;
 /*!50503 SET character_set_client = utf8mb4 */
 ;
 
-CREATE TABLE `Fridge` (
+CREATE TABLE `fridge` (
     `fridge_id` int NOT NULL AUTO_INCREMENT,
     `users_id` int NOT NULL,
     `ingredient_id` int NOT NULL,
@@ -59,12 +59,12 @@ CREATE TABLE `Fridge` (
 -- Dumping data for table `Fridge`
 --
 
-LOCK TABLES `Fridge` WRITE;
+LOCK TABLES `fridge` WRITE;
 /*!40000 ALTER TABLE `Fridge` DISABLE KEYS */
 ;
 
 INSERT INTO
-    `Fridge`
+    `fridge`
 VALUES (12, 2, 16),
     (13, 3, 13),
     (22, 2, 12),
@@ -84,13 +84,13 @@ UNLOCK TABLES;
 -- Table structure for table `Ingredients`
 --
 
-DROP TABLE IF EXISTS `Ingredients`;
+DROP TABLE IF EXISTS `ingredients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */
 ;
 /*!50503 SET character_set_client = utf8mb4 */
 ;
 
-CREATE TABLE `Ingredients` (
+CREATE TABLE `ingredients` (
     `ingredient_id` int NOT NULL AUTO_INCREMENT,
     `ingredient` varchar(255) NOT NULL,
     PRIMARY KEY (`ingredient_id`),
@@ -104,12 +104,12 @@ CREATE TABLE `Ingredients` (
 -- Dumping data for table `Ingredients`
 --
 
-LOCK TABLES `Ingredients` WRITE;
+LOCK TABLES `ingredients` WRITE;
 /*!40000 ALTER TABLE `Ingredients` DISABLE KEYS */
 ;
 
 INSERT INTO
-    `Ingredients`
+    `ingredients`
 VALUES (
         25,
         'alert(\"This ingredient is already in your fridge.\");'

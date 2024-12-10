@@ -67,7 +67,7 @@ router.post("/add", function (req, res, next) {
 
     // check if the ingredient exists in Ingredients table
     const findIngredientQuery =
-      "SELECT ingredient_id FROM Ingredients WHERE ingredient = ?";
+      "SELECT ingredient_id FROM ingredients WHERE ingredient = ?";
     db.query(findIngredientQuery, [ingredient], (err, ingredientResult) => {
       if (err) return next(err);
 
@@ -95,7 +95,7 @@ router.post("/add", function (req, res, next) {
       } else {
         // Ingredient doesn't exist, insert it into Ingredients table
         const insertIngredientQuery =
-          "INSERT INTO Ingredients (ingredient) VALUES (?)";
+          "INSERT INTO ingredients (ingredient) VALUES (?)";
         db.query(insertIngredientQuery, [ingredient], (err, result) => {
           if (err) return next(err);
 
@@ -143,7 +143,7 @@ router.post("/remove", function (req, res, next) {
     let ingredientToDelete = req.body.removeIngredient;
     // execute sql query to delete said ingredient
     let sqlQuery =
-      "DELETE FROM Fridge WHERE ingredient_id = (SELECT ingredient_id FROM ingredients WHERE ingredient = ?) AND users_id = ?";
+      "DELETE FROM fridge WHERE ingredient_id = (SELECT ingredient_id FROM ingredients WHERE ingredient = ?) AND users_id = ?";
     db.query(sqlQuery, [ingredientToDelete, userId], (err, results) => {
       if (err) {
         return next(err);

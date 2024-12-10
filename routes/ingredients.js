@@ -1,3 +1,4 @@
+// imports
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
@@ -22,7 +23,7 @@ router.post("/search", function (req, res, next) {
   ingredient = req.sanitize(req.body.ingredient);
   value = [`%${ingredient}%`];
   // create sql query
-  sqlQuery = "SELECT ingredient FROM Ingredients WHERE ingredient LIKE ?";
+  sqlQuery = "SELECT ingredient FROM ingredients WHERE ingredient LIKE ?";
   // execute query
   db.query(sqlQuery, value, (err, result) => {
     if (err) {

@@ -1,10 +1,11 @@
+// imports
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
 
 router.get("/ingredients", function (req, res, next) {
   // query to return the ingredients column from the Ingredients table
-  sqlQuery = "SELECT ingredient FROM Ingredients";
+  sqlQuery = "SELECT ingredient FROM ingredients";
   // execute query
   db.query(sqlQuery, (err, result) => {
     if (err) {
