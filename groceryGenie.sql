@@ -51,7 +51,7 @@ CREATE TABLE `Fridge` (
     UNIQUE KEY `fridge_id_UNIQUE` (`fridge_id`),
     KEY `users_id` (`users_id`),
     KEY `ingredient_id` (`ingredient_id`)
-) ENGINE = InnoDB AUTO_INCREMENT = 42 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 
@@ -96,7 +96,7 @@ CREATE TABLE `Ingredients` (
     PRIMARY KEY (`ingredient_id`),
     UNIQUE KEY `ingredient_id_UNIQUE` (`ingredient_id`),
     UNIQUE KEY `ingredient_UNIQUE` (`ingredient`)
-) ENGINE = InnoDB AUTO_INCREMENT = 28 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 
@@ -151,7 +151,7 @@ CREATE TABLE `users` (
     UNIQUE KEY `users_id_UNIQUE` (`users_id`),
     UNIQUE KEY `username_UNIQUE` (`username`),
     UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE = InnoDB AUTO_INCREMENT = 5 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 
