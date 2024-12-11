@@ -89,23 +89,10 @@ router.post(
         db.query(sqlquery, newUser, (err, result) => {
           if (err) {
             next(err);
+          } else {
+            // saving data in database and redirect to login
+            res.redirect("./login");
           }
-          // saving data in database
-          else
-            result =
-              "Hello " +
-              req.body.firstname +
-              " " +
-              req.body.lastname +
-              " you are now registered!  We will send an email to you at " +
-              req.body.email;
-          result +=
-            "Your password is: " +
-            req.body.password +
-            " and your hashed password is: " +
-            hashedPassword;
-
-          res.send(result);
         });
       });
     }
