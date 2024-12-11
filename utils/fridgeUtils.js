@@ -23,7 +23,7 @@ const getUserIdByUsername = (username, callback) => {
 const linkIngredientToUser = (userId, ingredientId, callback) => {
   // Check if the user already has this ingredient in their fridge
   const checkFridgeQuery =
-    "SELECT * FROM Fridge WHERE users_id = ? AND ingredient_id = ?";
+    "SELECT * FROM fridge WHERE users_id = ? AND ingredient_id = ?";
   db.query(checkFridgeQuery, [userId, ingredientId], (err, result) => {
     if (err) return callback(err);
 
@@ -34,7 +34,7 @@ const linkIngredientToUser = (userId, ingredientId, callback) => {
 
     // If no result found, insert the ingredient into the fridge
     const userFridgeQuery =
-      "INSERT INTO Fridge (users_id, ingredient_id) VALUES (?, ?)";
+      "INSERT INTO fridge (users_id, ingredient_id) VALUES (?, ?)";
     db.query(userFridgeQuery, [userId, ingredientId], (err, result) => {
       if (err) return callback(err);
       callback(null, result);
