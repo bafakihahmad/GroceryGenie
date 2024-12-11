@@ -90,7 +90,7 @@ router.post("/add", function (req, res, next) {
           }
 
           // Ingredient added, redirect to show updated list
-          res.redirect("/fridge");
+          res.redirect("./fridge");
         });
       } else {
         // Ingredient doesn't exist, insert it into Ingredients table
@@ -115,7 +115,7 @@ router.post("/add", function (req, res, next) {
             }
 
             // Ingredient added, redirect to show updated list
-            res.redirect("/fridge");
+            res.redirect("./fridge");
           });
         });
       }
@@ -148,7 +148,7 @@ router.post("/remove", function (req, res, next) {
       if (err) {
         return next(err);
       } else {
-        res.redirect("/fridge");
+        res.redirect("./fridge");
       }
     });
   });
