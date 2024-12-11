@@ -47,7 +47,7 @@ router.post("/loggedin", function (req, res, next) {
         // go in here if Passwords match
         // Save user session here, when login is successful
         req.session.userId = req.body.username;
-        res.status(200).redirect("/fridge");
+        res.status(200).redirect("../fridge");
       } else {
         // Passwords don't match
         res.status(401).send("<h1>Invalid username or password<h1>");
