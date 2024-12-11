@@ -10,7 +10,7 @@ const { check, validationResult } = require("express-validator");
 const redirectLogin = (req, res, next) => {
   if (!req.session.userId) {
     // Redirect to the login page if not logged in
-    res.redirect("/users/login");
+    res.redirect("./users/login");
   } else {
     next();
   }
@@ -119,7 +119,7 @@ router.get("/logout", redirectLogin, (req, res) => {
       return res.redirect("/");
     }
     //res.send("You have been looged out");
-    res.redirect("/");
+    res.redirect("../");
   });
 });
 
