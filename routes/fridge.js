@@ -8,7 +8,7 @@ const db = require("../database");
 const redirectLogin = (req, res, next) => {
   if (!req.session.userId) {
     // Redirect to the login page if not logged in
-    res.redirect("./users/login");
+    res.redirect("/users/login");
   } else {
     next();
   }

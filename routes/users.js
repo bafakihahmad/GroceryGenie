@@ -10,7 +10,7 @@ const { check, validationResult } = require("express-validator");
 const redirectLogin = (req, res, next) => {
   if (!req.session.userId) {
     // Redirect to the login page if not logged in
-    res.redirect("./users/login");
+    res.redirect("/users/login");
   } else {
     next();
   }
@@ -66,7 +66,7 @@ router.post(
   function (req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.redirect("./register");
+      res.redirect("/users/register");
     } else {
       // prepare salt rounds for hashing
       const saltRounds = 10;
@@ -116,9 +116,10 @@ router.post(
 router.get("/logout", redirectLogin, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      return res.redirect("./");
+      return res.redirect("/");
     }
-    res.send("You have been looged out");
+    //res.send("You have been looged out");
+    res.redirect("/");
   });
 });
 
