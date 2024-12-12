@@ -71,7 +71,7 @@ router.post(
       // prepare salt rounds for hashing
       const saltRounds = 10;
       // parse password from form to hash
-      const plainPassword = req.body.password;
+      const plainPassword = req.sanitize(req.body.password);
       // hash password
       bcrypt.hash(plainPassword, saltRounds, function (err, hashedPassword) {
         // Store hashed password in your database.
@@ -80,10 +80,10 @@ router.post(
           "INSERT INTO users (username, firstname, lastname, email, password) VALUES (?,?,?,?,?)";
         // parse user form data
         let newUser = [
-          req.body.username,
+          req.sanitize(req.body.username),
           req.sanitize(req.body.firstname),
-          req.body.lastname,
-          req.body.email,
+          req.sanitize(req.body.lastname),
+          req.sanitize(req.body.email),
           hashedPassword,
         ];
         db.query(sqlquery, newUser, (err, result) => {

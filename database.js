@@ -26,6 +26,6 @@ setInterval(() => {
       console.log("Database connection kept alive.");
     }
   });
-}, 30000); // Every 60 seconds
+}, 300000); // Every 5 minutes
 
 module.exports = db;

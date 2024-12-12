@@ -49,7 +49,7 @@ router.get("/", redirectLogin, function (req, res, next) {
 
 router.post("/add", function (req, res, next) {
   // Parse ingredient name from form
-  const ingredient = req.body.ingredient;
+  const ingredient = req.sanitize(req.body.ingredient);
   const username = req.session.userId;
 
   // Get the userId using the username
