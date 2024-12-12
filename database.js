@@ -17,4 +17,15 @@ db.connect((err) => {
   console.log("Connected to database");
 });
 
+// Keep the connection alive with a periodic query
+setInterval(() => {
+  db.query("SELECT 1", (err) => {
+    if (err) {
+      console.error("Error keeping the database connection alive:", err);
+    } else {
+      console.log("Database connection kept alive.");
+    }
+  });
+}, 30000); // Every 60 seconds
+
 module.exports = db;
